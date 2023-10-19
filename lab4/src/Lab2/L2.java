@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 
 public class L2 {
-	int size;
-	Stack stack;
+	private int size;
+	private Stack stack;
 	public L2(int n)
 	{
 		size = Math.abs(n);
@@ -26,5 +26,4 @@ public class L2 {
 			System.out.println(stack.pop());
 		}
 	}
-
 }

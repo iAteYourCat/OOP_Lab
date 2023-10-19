@@ -4,8 +4,8 @@ import Stack.Stack;
 import java.util.Scanner;
 
 public class L3 {
-	Stack stack ;
-	int size;
+	private Stack stack ;
+	private int size;
 	public L3(int n)
 	{
 		size = n;
@@ -19,7 +19,7 @@ public class L3 {
 		{
 			System.out.println("If you want to add integer type add .\n"
 					+ "If You want to remove integer type remove.\n"
-					+ "If You want to exit Lab3 type remove.\n");
+					+ "If You want to exit Lab3 type finish3.\n");
 					
 			command = scaner.next();
 			if(command.equals("add")) 

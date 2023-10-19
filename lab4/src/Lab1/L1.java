@@ -2,8 +2,8 @@ package Lab1;
 import java.util.Scanner;
 
 public class L1 {
-	int[] a;
-	int n,mx = Integer.MIN_VALUE;
+	private int[] a;
+	private int n,mx = Integer.MIN_VALUE;
 	public L1(int n)
 	{
 		this.n = n;
