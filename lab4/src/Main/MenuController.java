@@ -4,6 +4,8 @@ import Sclad.*;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.junit.experimental.categories.Category;
+
 import CustomException.MyException;
 
 
@@ -60,7 +62,17 @@ public class MenuController {
 				}
 			case 3:
 				{
+					System.out.println(
+							"--------------------------------\n"
+						   +"You peeked at head element.\n"
+						   + "--------------------------------");
+					Wait(500);
+					System.out.println("Head element:");
+					Wait(500);
 					System.out.println(storage.Peek());
+					
+					System.out.println(
+							"--------------------------------\n");
 					Wait();
 					break;
 				}
@@ -82,12 +94,26 @@ public class MenuController {
 				}
 			case 5:
 				{
-					
+					System.out.println(
+							"--------------------------------\n"
+						   +"You want to delete specific element.\n"
+						   +"Choose element to delete.\n"
+						   +"--------------------------------\n");
+					Wait();
+					storage.Remove(GetItem());
+					Wait();
 					break;
 				}
 			case 6:
 				{
-					
+					System.out.println(
+							"--------------------------------\n"
+						   +"You want to delete all specific elements.\n"
+						   +"Choose elements to delete.\n"
+						   +"--------------------------------\n");
+					Wait();
+					storage.RemoveAll(GetItem());
+					Wait();
 				break;
 				}
 			case 7:
@@ -111,6 +137,7 @@ public class MenuController {
 			System.out.println(e);
 		}
 	 }
+	
 	/**
 	 * Allows user to choose which element to add.
 	 * @return element from {@link Sclad.StorageItems#GetItem StorageItems.GetItem()} method
@@ -124,7 +151,7 @@ public class MenuController {
 	}
 	
 	/**
-	 * Generate random array of elements.
+	 * Generates random array of elements.
 	 * @param arraySize - size of the array
 	 * @return array of elements
 	 */
@@ -132,7 +159,7 @@ public class MenuController {
 	{
 		StorageItems[] e = new StorageItems[arraySize];
 		for (int i = 0; i < arraySize; i++ ) {
-			int randomNum = ThreadLocalRandom.current().nextInt(0, 6);
+			int randomNum = ThreadLocalRandom.current().nextInt(1, 7);
 			e[i] = StorageItems.GetItem(randomNum);
 			
 		}

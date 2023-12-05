@@ -13,12 +13,12 @@ public enum StorageItems {
 	{
 		switch(id)
 		{
-		case 0: return Pen;
-		case 1: return Pencil;
-		case 2: return Notebook;
-		case 3: return Backpack;
-		case 4: return Ruller;
-		case 5: return Eraser;
+		case 1: return Pen;
+		case 2: return Pencil;
+		case 3: return Notebook;
+		case 4: return Backpack;
+		case 5: return Ruller;
+		case 6: return Eraser;
 		
 		default: return null;
 		}

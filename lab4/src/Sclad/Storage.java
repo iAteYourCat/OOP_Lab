@@ -18,9 +18,11 @@ public class Storage{
 	/**
 	 * Adds element 'e'.
 	 * @param e - element to be added
+	 * @throws MyException
 	 */
-	public void Add(StorageItems e)
+	public void Add(StorageItems e) throws MyException
 	{
+		if(e == null) throw new MyException("\nInvalid argument.");
 		stack.add(e);
 	}
 	
@@ -47,22 +49,27 @@ public class Storage{
 	/**
 	 * Returns but does not delete head element.
 	 * @return head element
+	 * @throws MyException
 	 */
-	public StorageItems Peek()
+	public StorageItems Peek() throws MyException
 	{
+		 if(stack.isEmpty())
+		 {
+		 throw new MyException("\nIts empty.");
+		 }
 		return stack.peek();
 	}
 	/**
 	 *  Removes and returns the head element.
 	 * @return  first element
-	 * @throws MyException  Custom exception that prints message 
+	 * @throws 	MyException
 	 */
 	public StorageItems Remove() throws MyException 
 	{
 		
 		 if(stack.isEmpty())
 			 {
-			 throw new MyException("Its empty");
+			 throw new MyException("\nIts empty.");
 			 }
 		 return stack.remove();
 	}
