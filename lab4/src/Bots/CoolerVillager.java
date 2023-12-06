@@ -1,6 +1,6 @@
 package Bots;
 
-public class CoolerVillager {
+public class CoolerVillager extends Villager{
 	public CoolerVillager()
 	{
 		Discription();
