@@ -32,5 +32,5 @@ public enum StorageItems {
 			+"4.Backpack\n"
 			+"5.Ruller\n"
 			+"6.Eraser\n"
-			+"--------------\n";
+			+"--------------";
 }

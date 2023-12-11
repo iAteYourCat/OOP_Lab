@@ -1,8 +1,12 @@
 package Main;
 import Sclad.*;
 
+import static org.junit.jupiter.api.Assertions.assertTimeout;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.zip.CheckedInputStream;
 
 import org.junit.experimental.categories.Category;
 
@@ -25,18 +29,20 @@ public class MenuController {
 		   +"-------------------------------------------------------------------------------";
 	
 	static Scanner scanner = new Scanner(System.in);
+	static String input;
 	
 	private static Storage storage = new Storage();
+	
 	/**
-	 * 
+	 * Grant user ability to interact with the program.
 	 */
 	public static void SelectAction()
 	 {
-		System.out.println(message);
-		int a = scanner.nextInt();
-		Wait(250);
+		GetInput(message);
+		int x = Integer.parseInt(input);
 		try {
-		switch(a)
+		Wait(250);
+		switch(x)
 		{
 			case 1:
 				{
@@ -51,12 +57,12 @@ public class MenuController {
 				}
 			case 2:
 				{
-					System.out.println(
-							"--------------------------------\n"
-						   +"You want to add array.\n"
-						   +"Choose size of an Array.\n"
-						   +"--------------------------------\n");
-					int n = scanner.nextInt();
+							
+					GetInput("--------------------------------\n"
+							   +"You want to add array.\n"
+							   +"Choose size of an Array.\n"
+							   +"--------------------------------\n");
+					int n = Integer.parseInt(input);
 					storage.Add(GenerateItems(n));
 					break;
 				}
@@ -138,18 +144,18 @@ public class MenuController {
 		}
 	 }
 	
+	
 	/**
 	 * Allows user to choose which element to add.
 	 * @return element from {@link Sclad.StorageItems#GetItem StorageItems.GetItem()} method
 	 */
 	private static StorageItems GetItem()
 	{
-		System.out.println(StorageItems.ItemList);
-		Wait();
-		int id = scanner.nextInt();
-		return StorageItems.GetItem(id);
+		GetInput(StorageItems.ItemList);
+		return StorageItems.GetItem(
+				Integer.parseInt(input)
+				);
 	}
-	
 	/**
 	 * Generates random array of elements.
 	 * @param arraySize - size of the array
@@ -182,7 +188,7 @@ public class MenuController {
 		
 	}
 	/**
-	 *  Method that makes Thread sleep for a certain amount of time.
+	 * Method that makes Thread sleep for a certain amount of time.
 	 * @param time - sleep time of a thread.
 	 */
 	private static void Wait(long time)
@@ -196,4 +202,34 @@ public class MenuController {
 		}
 		
 	}
+	/**
+	 * Make sure that user input does not contain any letters
+	 * @param message - message to show again if input contains any letters
+	 */
+	private static void GetInput(String message) 
+	{
+		System.out.println(message);
+		input = scanner.nextLine();
+		while(CheckInput(input))
+		{
+			System.out.println(message + "\n[No letters or negative numbers]");
+			input = scanner.nextLine();
+		}
+		
+	}
+
+	/**
+	 * Checks if user input contains letters
+	 * @param input - user input
+	 * @return true if there is letters
+	 */
+	private static boolean CheckInput(String input)
+	{
+		for(int i = 0; i < input.length();i++)
+		{
+			if(!(input.charAt(i) >= '0' && input.charAt(i) <= '9')) return true;
+		}
+		return false;
+	}
+	
 }
