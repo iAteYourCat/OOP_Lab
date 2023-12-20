@@ -1,6 +1,5 @@
 package Main;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -30,6 +29,8 @@ public class Main {
 			n = 0;
 		}
 		
+		//ask user if he wants auto generation
+		 
 		while(x != 1 && x != 2)
 		{
 		System.out.println("Generate numbers automatically?\n"
@@ -81,6 +82,11 @@ public class Main {
 		System.out.println("Max value: " + mx);
 	}
 	
+	/**
+	 * Auto generation
+	 * @param list
+	 * @param n size of array
+	 */
 	static void Generate(List<Integer> list, int n)
 	{
 		for(int i = 0; i < n; i++)
