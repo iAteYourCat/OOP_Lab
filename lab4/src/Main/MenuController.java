@@ -210,6 +210,7 @@ public class MenuController {
 	{
 		System.out.println(message);
 		input = scanner.nextLine();
+		
 		while(CheckInput(input))
 		{
 			System.out.println(message + "\n[No letters or negative numbers]");
@@ -229,6 +230,7 @@ public class MenuController {
 		{
 			if(!(input.charAt(i) >= '0' && input.charAt(i) <= '9')) return true;
 		}
+		if(input.length() == 0)return true;
 		return false;
 	}
 	
