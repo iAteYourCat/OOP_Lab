@@ -9,6 +9,10 @@ public enum StorageItems {
 	Ruller,
 	Eraser;
 	
+	/**Return element of StorageItems 
+	 * @param id index of element to return
+	 * @return element of StorageItems
+	 */
 	public static StorageItems GetItem(int id)
 	{
 		switch(id)
@@ -23,6 +27,9 @@ public enum StorageItems {
 		default: return null;
 		}
 	}
+	/**
+	 * List of elements in StorageItems
+	 */
 	public static String ItemList =
 			"--------------\n"
 			+"Item List:\n"

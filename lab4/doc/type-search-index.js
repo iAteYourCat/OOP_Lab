@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"Main","l":"Main"},{"p":"Main","l":"MenuController"},{"p":"CustomException","l":"MyException"},{"p":"Sclad","l":"Storage"},{"p":"Sclad","l":"StorageItems"}];updateSearchResults();
